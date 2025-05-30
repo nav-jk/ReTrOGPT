@@ -4,7 +4,7 @@
 
 ![prev_1](./gpt/preview1.png)
 
-![prev_2](./preview2.png)
+![prev_2](./gpt/preview2.png)
 
 >  **Note:** A custom-trained GPT-2 model is currently under construction and will soon replace the temporary Hugging Face-hosted model.
 
