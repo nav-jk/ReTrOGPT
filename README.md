@@ -36,4 +36,8 @@ uvicorn main:app --host 0.0.0.0 --port 3000 --reload
 
 ### ⚠️ Model Status
 -  Currently Using: A placeholder GPT-2 model hosted on Hugging Face
--  Coming Soon: A fully custom-trained GPT-2 model built and fine-tuned by the project author
+-  Coming Soon: A fully custom-trained GPT-2 model built and fine-tuned by me.
+
+##  Credits
+
+- Retro Terminal inspired by [crt-terminal](https://github.com/essserrr/crt-terminal) by **essserrr**
