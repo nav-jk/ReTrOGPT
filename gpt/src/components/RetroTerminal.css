@@ -1,0 +1,24 @@
+/* Loading animation */
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #39ff14;  /* CRT green */
+  font-family: 'Press Start 2P', monospace;
+  font-size: 2rem;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.loading-text {
+  white-space: pre-wrap;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Retro terminal typing effect */
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

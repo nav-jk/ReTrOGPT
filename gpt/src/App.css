@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Press Start 2P', monospace;
+  background-color: black;
+}
+
+/* Background with scanlines and flicker effect */
+.background-section {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  position: relative;
+}
+
+.background-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Main terminal container */
+.terminal-overlay {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  max-width: 1100px;
+  height: 80vh;
+  max-height: 700px;
+  color: #11ff00;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  animation: crtStartup 0.8s ease-out, crtFlicker 0.15s infinite;
+}
+
+/* Content area inside terminal */
+.terminal-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input line styling */
+.input-form {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  color: #39ff14;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  flex-grow: 1;
+  padding: 2px;
+  caret-color: #39ff14;
+}
+
+/* Retro-styled button */
+.start-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: inherit;
+  background: black;
+  border: 2px solid #39ff14;
+  color: #39ff14;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.start-button:hover {
+  background: #39ff14;
+  color: black;
+}
+
+/* Scrollbar styling */
+.terminal-overlay::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-overlay::-webkit-scrollbar-thumb {
+  background-color: #08c864;
+  border-radius: 3px;
+}
+
+.terminal-overlay::-webkit-scrollbar-track {
+  background-color: #003d1f;
+}
+
+/* Typewriter CRT text */
+.typewriter {
+  white-space: pre-wrap;
+  color: #39ff14;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* Blinking block cursor */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1em;
+  background-color: #39ff14;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* Animations */
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes crtFlicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.98;
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
+@keyframes crtStartup {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.1);
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Responsive typography for small screens */
+@media (max-width: 600px) {
+  .terminal-overlay {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+
+  .start-button {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .input {
+    font-size: 0.85rem;
+  }
+}
