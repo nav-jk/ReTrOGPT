@@ -2,6 +2,10 @@
 
 **ReTrOGPT** is a nostalgic, retro-themed adaptation of **GPT-2**, built as a homebrew project. It features a simulated BIOS boot sequence and CRT terminal interface, all wrapped in a vintage aesthetic.
 
+![prev_1](./preview1.png)
+
+![prev_2](./preview2.png)
+
 >  **Note:** A custom-trained GPT-2 model is currently under construction and will soon replace the temporary Hugging Face-hosted model.
 
 ---
